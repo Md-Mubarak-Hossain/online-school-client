@@ -38,8 +38,9 @@ const Route = () => {
                     element: <Blog></Blog>
                 },
                 {
-                    path: '/checkout',
-                    element: <PrivateRouter> <Checkout></Checkout></PrivateRouter>
+                    path: '/checkout/:id',
+                    element: <PrivateRouter> <Checkout></Checkout></PrivateRouter>,
+                    loader: async ({ params }) => fetch(`https://online-school-server-six.vercel.app/courses/${params.id}`)
                 },
                 {
                     path: '/login',

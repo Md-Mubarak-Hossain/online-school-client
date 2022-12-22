@@ -7,9 +7,8 @@ const ref = createRef();
 const Program = () => {
     const course = useLoaderData();
     console.log(course);
-    const { description, image, name, title, free, medium, premium } = course;
+    const { _id, description, image, name, title, free, medium, premium } = course;
     console.log(free)
-
 
     return (
         <div className='w-full'>
@@ -76,7 +75,7 @@ const Program = () => {
                                                 premium.map(p => <li>{p}</li>)
                                             }
                                             <div className="card-actions justify-end">
-                                                <Link to='/checkout'><button className="badge badge-outline  btn-outline btn-warning w-40 p-3">Enroll Now</button></Link>
+                                                <Link to={`/checkout/${_id}`}> <button className="badge badge-outline  btn-outline btn-warning w-40 p-3">Enroll Now</button></Link>
                                             </div>
                                         </div>
                                     </div>
@@ -85,9 +84,9 @@ const Program = () => {
 
                         </div>
                     </div >
-                    <div className='w-2/12 mx-auto mb-5 pb-5'><Link to='/checkout'><button className=" badge badge-outline btn-outline btn-warning w-40 p-3 ">Get Premium access</button></Link></div>
+                    <div className='w-2 /12 mx-auto mb-5 pb-5'><Link to={`/checkout/${_id}`}><button className=" badge badge-outline btn-outline btn-warning w-40 p-3 ">Get Premium access</button></Link></div>
                 </div>
-            </div >
+            </div>
         </div >
     );
 };
