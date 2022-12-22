@@ -9,6 +9,7 @@ import Home from '../pages/Home/Home';
 import Blog from '../pages/shared/Blog/Blog';
 import Checkout from './Checkout';
 import FourOfFour from './FourOfFour';
+import PrivateRouter from './PrivateRouter';
 
 const Route = () => {
     const router = createBrowserRouter([
@@ -29,7 +30,7 @@ const Route = () => {
                 },
                 {
                     path: '/courses/:id',
-                    element: <Program></Program>,
+                    element: <PrivateRouter><Program></Program></PrivateRouter>,
                     loader: async ({ params }) => fetch(`https://online-school-server-six.vercel.app/courses/${params.id}`)
                 },
                 {
@@ -38,7 +39,7 @@ const Route = () => {
                 },
                 {
                     path: '/checkout',
-                    element: <Checkout></Checkout>
+                    element: <PrivateRouter> <Checkout></Checkout></PrivateRouter>
                 },
                 {
                     path: '/login',

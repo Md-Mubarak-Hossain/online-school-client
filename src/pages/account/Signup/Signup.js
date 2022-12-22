@@ -25,7 +25,7 @@ const Signup = () => {
     }
 
     return (
-        <div className="hero min-h-screen" >
+        <div className="hero pb-5" >
             <div className="hero-content flex-col">
                 <h1 className="text-4xl font-extrabold text-primary uppercase">Please Sign up now!</h1>
                 <form onSubmit={handleSubmit} className="card flex-shrink-0 w-full max-w-sm shadow-2xl">

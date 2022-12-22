@@ -42,7 +42,7 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-screen">
+        <div className="hero  lg:pt-10">
             <div className="hero-content flex-col ">
                 <h1 className="text-4xl font-extrabold text-primary uppercase">Please Login now!</h1>
                 <form onSubmit={handleSubmit} className="card flex w-full max-w-sm shadow-2xl">
