@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { BsSun, BsMoon } from 'react-icons/bs';
 import './Main.css';
 
 import logo from '../components/assets/logo.png';
 import Footer from '../pages/shared/footer/Footer';
+import { AuthContext } from '../pages/contexts/UserContext';
 
 const Main = () => {
+    const { user, logOut } = useContext(AuthContext)
     const [them, setThem] = useState('night')
     const menu = <>
         <label className="swap swap-rotate">
@@ -18,9 +20,17 @@ const Main = () => {
         <li><Link to='/'>About</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><a href='#course'>Courses</a></li>
-        <li><Link to='/login'>Log in</Link></li>
-        <li><Link to='/signup'>Sign up</Link></li>
-        <li><Link to='/'>Log out</Link></li>
+        {
+            user && user.uid ?
+                <li><button className='btn btn-ghost btn-sm' onClick={() => logOut}>LOG OUT</button></li>
+                :
+                <>
+                    <li><Link to='/login'>Log in</Link></li>
+                    <li><Link to='/signup'>Sign up</Link></li>
+                </>
+
+        }
+
         <li><Link to='/'>Contact</Link></li>
     </>
     return (
