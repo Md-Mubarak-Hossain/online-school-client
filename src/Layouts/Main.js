@@ -27,7 +27,7 @@ const Main = () => {
         {
             user && user.uid ?
                 <>
-                    <li><button className='btn btn-ghost btn-sm' onClick={() => onclick}>LOG OUT</button></li>
+                    <li><button className='btn btn-ghost btn-sm' onClick={() => onclick()}>LOG OUT</button></li>
                 </>
                 :
                 <>
@@ -62,7 +62,12 @@ const Main = () => {
                             </ul>
                         </div>
                         <div className='w-14 flex flex-col place-items-center justify-center items-center'>
-                            <Link className='avatar rounded-full '><img src={user?.photoURL} alt="" className='w-10 h-10 rounded-full' /></Link>
+                            {
+                                user && user.uid ?
+                                    <Link className='avatar rounded-full '><img src={user?.photoURL} alt="" className='w-10 h-10 rounded-full' /></Link>
+                                    :
+                                    <></>
+                            }
                         </div>
                     </div>
                     <Outlet></Outlet>
