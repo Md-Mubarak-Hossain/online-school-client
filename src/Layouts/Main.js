@@ -10,6 +10,10 @@ import { AuthContext } from '../pages/contexts/UserContext';
 const Main = () => {
     const { user, logOut } = useContext(AuthContext)
     const [them, setThem] = useState('night')
+    const onclick = () => {
+        logOut()
+            .then(() => { })
+    }
     const menu = <>
         <label className="swap swap-rotate">
             <input type="checkbox" />
@@ -22,7 +26,9 @@ const Main = () => {
         <li><a href='#course'>Courses</a></li>
         {
             user && user.uid ?
-                <li><button className='btn btn-ghost btn-sm' onClick={() => logOut}>LOG OUT</button></li>
+                <>
+                    <li><button className='btn btn-ghost btn-sm' onClick={() => onclick}>LOG OUT</button></li>
+                </>
                 :
                 <>
                     <li><Link to='/login'>Log in</Link></li>
@@ -31,7 +37,7 @@ const Main = () => {
 
         }
 
-        <li><Link to='/'>Contact</Link></li>
+
     </>
     return (
         <div data-theme={them}>
@@ -48,11 +54,15 @@ const Main = () => {
                         <div className="flex-1 place-items-center p-2 mx-2">
                             <img src={logo} alt="" className='w-14 h-14 hidden lg:block' />
                             <h2 className='lg:font-extrabold lg:text-2xl underlined uppercase px-2'>online school</h2>
+
                         </div>
                         <div className="flex-none hidden lg:block">
                             <ul className="menu menu-horizontal place-items-center uppercase">
                                 {menu}
                             </ul>
+                        </div>
+                        <div className='w-14 flex flex-col place-items-center justify-center items-center'>
+                            <Link className='avatar rounded-full '><img src={user?.photoURL} alt="" className='w-10 h-10 rounded-full' /></Link>
                         </div>
                     </div>
                     <Outlet></Outlet>
@@ -65,7 +75,7 @@ const Main = () => {
                     </ul>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
