@@ -16,9 +16,10 @@ const Main = () => {
         </label>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>About</Link></li>
-        <li><Link to='/'>Blog</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
         <li><a href='#course'>Courses</a></li>
-        <li><Link to='/'>Log in</Link></li>
+        <li><Link to='/login'>Log in</Link></li>
+        <li><Link to='/signup'>Sign up</Link></li>
         <li><Link to='/'>Log out</Link></li>
         <li><Link to='/'>Contact</Link></li>
     </>
@@ -45,6 +46,7 @@ const Main = () => {
                         </div>
                     </div>
                     <Outlet></Outlet>
+                    <Footer></Footer>
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="navbar-menu-portfolio" className="drawer-overlay"></label>
@@ -53,7 +55,6 @@ const Main = () => {
                     </ul>
                 </div>
             </div>
-            <Footer></Footer>
         </div>
     );
 };

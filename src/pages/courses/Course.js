@@ -6,9 +6,9 @@ const Course = ({ course }) => {
     console.log(course)
     return (
         <div className='p-3'>
-            <div className="card p-2   bg-base-100 shadow-2xl">
-                <figure className="px-3 pt-3 h-40">
-                    <img src={image} alt={name} className="rounded h-40 " />
+            <div className="card p-2 bg-base-100 shadow-2xl">
+                <figure className="px-3 pt-3 w-full lg:h-40">
+                    <img src={image} alt={name} className="rounded w-full lg:h-40 " />
                 </figure>
                 <div className="card-body s-center text-center">
                     <h2 className="card-title">{name}</h2>
@@ -16,7 +16,7 @@ const Course = ({ course }) => {
                         <Link to={`/courses/${_id}`}><button className="btn btn-outline btn-info w-40 uppercase">See details</button> </Link>
                     </div>
                 </div>
-            </div >
+            </div>
         </div>
     );
 };
